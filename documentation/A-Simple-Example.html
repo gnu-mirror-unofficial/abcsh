@@ -1,8 +1,8 @@
 <html lang="en">
 <head>
-<title>A Simple Example - A Shell for Processing ABC Music Notation Files</title>
+<title>A Simple Example - A shell for processing ABC music notation content</title>
 <meta http-equiv="Content-Type" content="text/html">
-<meta name="description" content="A Shell for Processing ABC Music Notation Files">
+<meta name="description" content="A shell for processing ABC music notation content">
 <meta name="generator" content="makeinfo 4.7">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="prev" href="Overview.html#Overview" title="Overview">
@@ -52,7 +52,7 @@ are then written out of the abcsh buffer to a file called mytunes.abc.
 
    <p>If you want to see all the options that <span class="command">abcsh</span> supports try the command <span class="samp">abcsh --help</span>:
 
-<pre class="example">     abcsh - A Shell for Processing ABC Music Notation Files
+<pre class="example">     abcsh - A Shell for Processing ABC music notation content
      
      Usage: abcsh [OPTION]... [FILE]...
      
@@ -71,10 +71,19 @@ are then written out of the abcsh buffer to a file called mytunes.abc.
        -r, --renumber=START_NO    Renumber the X ref fields in the abcsh buffer
                                   starting with START_NO if supplied,
                                   otherwise start with 1
+     
        -s, --select=T/V/M         Select contents of abcsh buffer by T (a range of
-                                  tune numbers), V (a range of voice numbers),
-                                  and M (a range of measure numbers).
-       -S, --script=FILE          Run a script on the abcsh buffer
+                                  tune numbers), V (a range of voice numbers), and
+                                  M (a range of measure numbers). A range is a
+                                  series of number separated by commas or dash or
+                                  an astrick to include the entire set. E.g.
+     
+                                      --select=1,3-5/*/1-4
+     
+                                  would select tunes 1, 3, 4, and 5.  The asterix
+                                  indicates all voices.   Finally select meaures
+                                  1 through 4 from that set.
+       -S, --script=FILE          Run a script on the abcsh buffer's content
        -t, --table-of-contents    Generate a table of contents from the current
                                   contents of the abcsh buffer
        -v, --verbose              print more information
